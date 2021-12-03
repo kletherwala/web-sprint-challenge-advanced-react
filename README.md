@@ -117,9 +117,16 @@ test("displays plants in cart", () => {
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. Add your answers below.
 
 1. What are the main differences between a stateful and a functional component?
+stateful logic is logic that is built into a component. it has state and is keeping track of changing data. Functional (stateless) components print out what is given to them via props or they always render the same thing. 
 
 2. When does a componentWillMount function be called? What about a componentWillUpdate?
+componentWillMount is invoked immediately before mounting occurs. 
+componentWillUpdate is invoked just before rendering when new props or state are being received 
 
 3. Define stateful logic.
+any code that uses the state. and it's built into a component.
 
 4. What are the three step of creating a successful test? What is done in each phase? 
+Arrange - use the render method to render a react element into a virtual DOM
+Act - execute behavior. Example - The screen.getByText() method can be used to "query" the DOM for a specific node by its text that we expect to see in the browser.
+Assert - extract the response element and check (if necessary) that it is what we expect it to be. 
