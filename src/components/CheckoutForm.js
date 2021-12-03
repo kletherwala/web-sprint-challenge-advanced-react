@@ -15,18 +15,9 @@ const initialValue = {
 // and replace the necessary stateful logic from CheckoutForm with the hook
 
 const CheckoutForm = (props) => {
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [values, setValues] = useForm(initialValue);
 
-  const handleChanges = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setShowSuccessMessage(true);
-  };
-
+  const [values, handleSubmit, handleChanges, showSuccessMessage] = useForm(initialValue);
+  
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -35,6 +26,7 @@ const CheckoutForm = (props) => {
           First Name:
           <input
             name="firstName"
+            data-testid="firstName"
             value={values.firstName}
             onChange={handleChanges}
           />
@@ -43,6 +35,7 @@ const CheckoutForm = (props) => {
           Last Name:
           <input
             name="lastName"
+            data-testid="lastName"
             value={values.lastName}
             onChange={handleChanges}
           />
@@ -51,25 +44,25 @@ const CheckoutForm = (props) => {
           Address:
           <input
             name="address"
+            data-testid="address"
             value={values.address}
             onChange={handleChanges}
           />
         </label>
         <label>
           City:
-          <input name="city" value={values.city} onChange={handleChanges} />
+          <input name="city" data-testid="city" value={values.city} onChange={handleChanges} />
         </label>
         <label>
           State:
-          <input name="state" value={values.state} onChange={handleChanges} />
+          <input name="state" data-testid="state"value={values.state} onChange={handleChanges} />
         </label>
         <label>
           Zip:
-          <input name="zip" value={values.zip} onChange={handleChanges} />
+          <input name="zip" data-testid="zip" value={values.zip} onChange={handleChanges} />
         </label>
-        <button>Checkout</button>
+        <button data-testid="button">Checkout</button>
       </form>
-
       {showSuccessMessage && (
         <div className="success-message" data-testid="successMessage">
           <p>
@@ -90,5 +83,4 @@ const CheckoutForm = (props) => {
     </>
   );
 };
-
 export default CheckoutForm;
